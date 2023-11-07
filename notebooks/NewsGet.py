@@ -134,7 +134,6 @@ def download_rmrb(year, month, day, destdir):
             # 获取新闻文章内容
             html = fetch_url(url)
             content = get_content(html)
-
             # 生成保存的文件路径及文件名
             temp = url.split('_')[2].split('.')[0].split('-')
             page_no = temp[1]
@@ -144,6 +143,7 @@ def download_rmrb(year, month, day, destdir):
 
             # 保存文件
             save_file(content, path, file_name)
+            # time.sleep(3) 休眠
 
 
 def gen_dates(b_date, days):
@@ -163,7 +163,7 @@ def get_date_list(beginDate, endDate):
     end = datetime.datetime.strptime(endDate, "%Y%m%d")
 
     data = []
-    for d in gen_dates(start, (end - start).days):
+    for d in gen_dates(start, (end - start).days + 1):
         data.append(d)
     # return: 返回开始日期和结束日期之间的日期列表
     return data
@@ -171,7 +171,7 @@ def get_date_list(beginDate, endDate):
     # 主函数：程序入口
 
 
-def get_news():
+def get_news(local_data):
     # 输入起止日期，爬取之间的新闻
     print('---文章爬取系统---')
     beginDate = input('请输入开始日期(格式如20231101):')
@@ -185,8 +185,13 @@ def get_news():
         # 爬取后文章t统一存到这个文件夹,没有会自动创建
         destdir = "../data"
 
+        # 判断日期是否在local_data中，如果在则continue
+        date = int(year + month + day)
+        print(date)
+        if date in local_data:
+            print('爬取文章时间为：' + year + '/' + month + '/' + day + '的文章已经存在!')
+            continue
+        print('---开始爬取文章，日期为' + year + '/' + month + '/' + day + '---')
+        # time.sleep(3) 休眠
         download_rmrb(year, month, day, destdir)
-        print('---文章爬取系统---')
         print("爬取文章完成！")
-        print('爬取文章时间为：' + year + '/' + month + '/' + day + '的文章已成功写入文件夹中！')
-        print('---文章爬取系统---')

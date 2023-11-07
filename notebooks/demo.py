@@ -52,7 +52,9 @@ def getWords(news: str):
 
 def get_words_count(news_path):
     words = []
-    for path in sample(news_path, k=50):
+    news_path_len = len(news_path)
+    news_path_len_sample = int(news_path_len * 0.8)
+    for path in sample(news_path, k=news_path_len_sample):
         news = open(path, 'r', encoding=encoding).read()
         words += getWords(news)
     print('词语数量: ', len(words))
@@ -115,24 +117,24 @@ def timer_process():
     while True:
         current_time = time.time()
         elapsed_time = current_time - start_time
-        print(f"Elapsed Time: {int(elapsed_time)} seconds", end='\r')
+        print(f"词云图生成时间计时，当前已经用时: {int(elapsed_time)} 秒", end='\r')
         time.sleep(1)
 
 
 def draw_wordcloud(word_count):
     start_time = time.time()
-    print("begin to init")
+    print("开始初始化WordCloud init")
     wc = WordCloud(font_path='../Fonts/方正正中黑简体.ttf', width=9000, height=6000, background_color="red",
                    max_words=1000,
                    color_func=lambda *args, **kwargs: (255, 255, 0))
-    print("begin to generate images")
+    print("初始化完成! 开始生成WordCloud图片!预计503秒")
     timer = multiprocessing.Process(target=timer_process)
     timer.start()
     wc.generate_from_frequencies(word_count)
     # 主进程执行完毕后，关闭计时进程
     timer.terminate()
     timer.join()
-    print("begin to save images")
+    print("生成图片完成! 开始保存图片!")
     wc.to_file("People's Daily WordCloud Zh_1.png")
     plt.figure(figsize=(32, 16))
     plt.imshow(plt.imread("./People's Daily WordCloud Zh_1.png"))
@@ -150,21 +152,22 @@ def get_current_data_list(global_path):
             continue  # 跳过根路径
         local_data.append(int(dirname.replace(global_path, '')))
     local_data.sort()
-    print('current exist data:', local_data)
+    print('当前已经有的数据有:', local_data)
+    return local_data
 
 
 def get_new_data(global_path):
-    get_current_data_list(global_path)
+    local_data = get_current_data_list(global_path)
     while (True):
-        flag = input("add new data?Y/N")
+        flag = input("新增文章数据吗?输入Y或N")
         if flag == 'Y':
-            get_news()
+            get_news(local_data)
             break
         elif flag == 'N':
-            print('do not add new data!')
+            print('不添加新数据!')
             break
         else:
-            print('please input Y or N!')
+            print('请输入Y或N!')
 
 
 if __name__ == '__main__':
