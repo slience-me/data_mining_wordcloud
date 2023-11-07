@@ -143,7 +143,7 @@ def download_rmrb(year, month, day, destdir):
 
             # 保存文件
             save_file(content, path, file_name)
-            # time.sleep(3) 休眠
+            time.sleep(120)  # 休眠120s
 
 
 def gen_dates(b_date, days):

@@ -91,7 +91,7 @@ def get_stop_words():
     stopwords.append('\xa0')
 
     stopwords = list(set(stopwords))
-    print('统计停止词总数: ', len(stopwords))
+    print('统计停用词总数: ', len(stopwords))
     return stopwords
 
 

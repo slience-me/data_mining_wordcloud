@@ -325,7 +325,7 @@ def get_stop_words():
     # stopwords.append('\xa0')
     #
     # stopwords = list(set(stopwords))
-    # print('统计停止词总数: ', len(stopwords))
+    # print('统计停用词总数: ', len(stopwords))
     stopwords = set()
     for dirname, _, filenames in os.walk('../stopwords-master'):
         for filename in filenames:
@@ -337,13 +337,13 @@ def get_stop_words():
                         '是'}
     stopwords.update(common_stopwords)
     stopwords = list(stopwords)
-    print('func get_unique_words_count() is called：统计停止词总数: ', len(stopwords))
+    print('func get_unique_words_count() is called：统计停用词总数: ', len(stopwords))
     return stopwords
 
 
 def word_count_remove_stopword(word_count):
     """
-        从全部词语中移除停止词
+        从全部词语中移除停用词
     :param word_count:
     :return:
     """
@@ -354,7 +354,7 @@ def word_count_remove_stopword(word_count):
     # print('不带停止语的唯一单词总数: ', len(word_count))
     stopwords = set(get_stop_words())
     word_count = {word: count for word, count in word_count.items() if word not in stopwords}
-    print('func get_unique_words_count() is called：不带停止词的唯一单词总数: ', len(word_count))
+    print('func get_unique_words_count() is called：不带停用词的唯一单词总数: ', len(word_count))
     word_count_no_single = {word: count for word, count in word_count.items() if len(word) > 1}
     print('func get_unique_words_count() is called：去除单个字的唯一单词总数: ', len(word_count_no_single))
     return word_count_no_single
