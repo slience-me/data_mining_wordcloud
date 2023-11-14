@@ -1,6 +1,8 @@
 ### codeby: slience_me
 
-### myblog: https://blog.csdn.net/slience_me
+### myCsdnBlog: https://blog.csdn.net/slience_me
+
+### myblog: https://slienceme.xyz
 
 ### myGitHub: https://github.com/slience-me
 
