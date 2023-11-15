@@ -173,8 +173,8 @@ def get_new_data(global_path):
 if __name__ == '__main__':
     global_path = '../data/'
     get_new_data(global_path)
-    news_path = get_news_path()
-    words = get_words_count(news_path)
-    word_count = get_unique_words_count(words)
-    word_count = word_count_remove_stopword(word_count)
-    draw_wordcloud(word_count)
+    # news_path = get_news_path()
+    # words = get_words_count(news_path)
+    # word_count = get_unique_words_count(words)
+    # word_count = word_count_remove_stopword(word_count)
+    # draw_wordcloud(word_count)
