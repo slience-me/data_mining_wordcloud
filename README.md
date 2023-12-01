@@ -1,3 +1,5 @@
+![logo](logo.png)
+
 ### codeby: slience_me
 
 ### myCsdnBlog: https://blog.csdn.net/slience_me
@@ -5,8 +7,6 @@
 ### myblog: https://slienceme.xyz
 
 ### myGitHub: https://github.com/slience-me
-
-[对比文档](contrast_notebook/people_daily_wordcloud_contrast.md)
 
 ### 注：本项目为数据挖掘作业任务，仅为作学习使用
 数据获取过程严格遵循规定
