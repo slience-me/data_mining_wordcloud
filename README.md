@@ -1,14 +1,15 @@
 ![logo](logo.png)
 
-### codeby: slience_me
+codeby: slience_me
 
-### myCsdnBlog: https://blog.csdn.net/slience_me
+**myCsdnBlog: https://blog.csdn.net/slience_me**
 
-### myblog: https://slienceme.xyz
+**myblog: https://slienceme.xyz**
 
-### myGitHub: https://github.com/slience-me
+**myGitHub: https://github.com/slience-me**
 
-### 注：本项目为数据挖掘作业任务，仅为作学习使用
+注：本项目为数据挖掘作业任务，仅为作学习使用
+
 数据获取过程严格遵循规定
 
 > 
@@ -25,7 +26,9 @@
 
 
 
-# 人民日报文章内容分析(独立分析)
+[TOC]
+
+# 一、人民日报文章内容分析(独立分析)
 
 ## 1.数据获取 
 
@@ -229,7 +232,7 @@ def get_news(local_data):
         print("爬取文章完成！")
 ```
 
-# 2.数据处理
+## 2.数据处理
 
 
 ```python
@@ -450,7 +453,7 @@ get_new_data()
 
     当前已经有的数据有: [20230901, 20230902, 20230903, 20230904, 20230905, 20230906, 20230907, 20230908, 20230909, 20230910, 20230911, 20230912, 20230913, 20230914, 20230915, 20230916, 20230917, 20230918, 20230919, 20230920, 20230921, 20230922, 20230923, 20230924, 20230925, 20230926, 20230927, 20230928, 20230929, 20231001, 20231002, 20231003, 20231004, 20231005, 20231006, 20231007, 20231008, 20231009, 20231010, 20231011, 20231012, 20231013, 20231014, 20231015, 20231016, 20231017, 20231018, 20231019, 20231020, 20231021, 20231022, 20231023, 20231024, 20231025, 20231026, 20231027, 20231028, 20231029, 20231101, 20231102, 20231103, 20231104]
     不添加新数据!
-    
+
 
 
 ```python
@@ -458,7 +461,7 @@ news_path = get_news_path()
 ```
 
     func get_news_path() is called：现有新闻总数为:  4495
-    
+
 
 
 ```python
@@ -466,7 +469,7 @@ words = get_words_count(news_path)
 ```
 
     func get_words_count() is called：词语数量:  2717908
-    
+
 
 
 ```python
@@ -474,7 +477,7 @@ word_count = get_unique_words_count(words)
 ```
 
     func get_unique_words_count() is called：去重词语的个数： 93063
-    
+
 
 
 ```python
@@ -484,7 +487,7 @@ word_count = word_count_remove_stopword(word_count)
     func get_unique_words_count() is called：统计停用词总数:  2320
     func get_unique_words_count() is called：不带停用词的唯一单词总数:  91900
     func get_unique_words_count() is called：去除单个字的唯一单词总数:  88986
-    
+
 
 
 ```python
@@ -494,16 +497,16 @@ draw_wordcloud(word_count)
     开始初始化WordCloud init
     初始化完成! 开始生成WordCloud图片!预计503秒
     生成图片完成! 开始保存图片!
-    
 
 
-    
+
+
 ![png](images/output_10_1.png)
     
 
 
     代码块执行时间：456.9963958263397 秒
-    
+
 
 
 ```python
@@ -529,9 +532,9 @@ plt.show()
 ```
 
 
-    
+​    
 ![png](images/output_12_0.png)
-    
+​    
 
 
 
@@ -695,7 +698,7 @@ print(category_word_counts_sum)
     国际事务: 69
     
     {'政治与国际关系': 9845, '经济与金融': 44050, '文化与教育': 20562, '社会与人民生活': 9268, '科技与创新': 10369, '军事与国防': 1548, '环境与可持续发展': 2874, '国内地区报道': 3551, '国际报道': 11039}
-    
+
 
 
 ```python
@@ -713,9 +716,9 @@ plt.show()
 ```
 
 
-    
+​    
 ![png](images/output_16_0.png)
-    
+​    
 
 
 
@@ -738,7 +741,7 @@ for category, word_count_ in category_word_counts.items():
     plot_word_count(word_count_, category)
 ```
 
-    
+
 ![png](images/output_18_0.png)
 ![png](images/output_18_1.png)
 ![png](images/output_18_2.png)
@@ -750,11 +753,11 @@ for category, word_count_ in category_word_counts.items():
 ![png](images/output_18_8.png)
     
 
-# 针对各个月份的数据进行对比分析
+# 二、针对各个月份的数据进行对比分析
 
-# 人民日报文章月度内容分析
+## 人民日报文章月度内容分析
 
-## 1.月度关键词对比分析
+### 1.月度关键词对比分析
 
 ```python
 import multiprocessing
@@ -1165,8 +1168,6 @@ news_path_202311 = get_news_path('202311')
     func get_news_path() is called：文件夹202310中现有新闻总数为: 2055
     func get_news_path() is called：文件夹202311中现有新闻总数为: 1078
 
-
-
 ```python
 print("文件夹: ..data_contrast/202307/")
 words_202307 = get_words_count(news_path_202307)
@@ -1201,8 +1202,6 @@ words_202311 = get_words_count(news_path_202311)
     文件夹: ..data_contrast/202311/
     func get_words_count() is called：词语数量:  680024
 
-
-
 ```python
 print("文件夹: ..data_contrast/202307/")
 word_count_202307 = get_unique_words_count(words_202307)
@@ -1226,8 +1225,6 @@ word_count_202311 = get_unique_words_count(words_202311)
     func get_unique_words_count() is called：去重词语的个数： 61809
     文件夹: ..data_contrast/202311/
     func get_unique_words_count() is called：去重词语的个数： 44607
-
-
 
 ```python
 print("文件夹: ..data_contrast/202307/")
@@ -1271,8 +1268,6 @@ word_remove_stopword_count_202311 = word_count_remove_stopword(word_count_202311
     func get_unique_words_count() is called：不带停用词的唯一单词总数:  43621
     func get_unique_words_count() is called：去除单个字的唯一单词总数:  41732
 
-
-
 ```python
 print('2023年7月文章的词云图像')
 draw_wordcloud(word_remove_stopword_count_202307)
@@ -1284,15 +1279,11 @@ draw_wordcloud(word_remove_stopword_count_202307)
     生成图片完成! 开始保存图片!
 
 
-
-
 ![png](images/contrast/output_8_1.png)
-    
+
 
 
     代码块执行时间：430.6391878128052 秒
-
-
 
 ```python
 print('2023年8月文章的词云图像')
@@ -1305,15 +1296,11 @@ draw_wordcloud(word_remove_stopword_count_202308)
     生成图片完成! 开始保存图片!
 
 
-
-
 ![png](images/contrast/output_9_1.png)
     
 
 
     代码块执行时间：401.8334217071533 秒
-
-
 
 ```python
 print('2023年9月文章的词云图像')
@@ -1326,15 +1313,11 @@ draw_wordcloud(word_remove_stopword_count_202309)
     生成图片完成! 开始保存图片!
 
 
-
-
 ![png](images/contrast/output_10_1.png)
-    
+
 
 
     代码块执行时间：401.0580303668976 秒
-
-
 
 ```python
 print('2023年10月文章的词云图像')
@@ -1347,15 +1330,11 @@ draw_wordcloud(word_remove_stopword_count_202310)
     生成图片完成! 开始保存图片!
 
 
-
-
 ![png](images/contrast/output_11_1.png)
     
 
 
     代码块执行时间：386.45059037208557 秒
-
-
 
 ```python
 print('2023年11月文章的词云图像')
@@ -1368,8 +1347,6 @@ draw_wordcloud(word_remove_stopword_count_202311)
     生成图片完成! 开始保存图片!
 
 
-
-
 ![png](images/contrast/output_12_1.png)
     
 
@@ -1377,7 +1354,7 @@ draw_wordcloud(word_remove_stopword_count_202311)
     代码块执行时间：411.2772192955017 秒
 
 
-### 以07月top15的关键字为基准，统计5个月的变化
+#### 以07月top15的关键字为基准，统计5个月的变化
 
 
 ```python
@@ -1386,18 +1363,15 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
 ```
 
 
-    
 ![png](images/contrast/output_14_0.png)
-    
-
-
+​    
 
 
 ![png](images/contrast/output_14_1.png)
     
 
 
-### 以08月top15的关键字为基准，统计5个月的变化
+#### 以08月top15的关键字为基准，统计5个月的变化
 
 
 ```python
@@ -1406,9 +1380,8 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
 ```
 
 
-    
 ![png](images/contrast/output_16_0.png)
-    
+​    
 
 
 
@@ -1417,7 +1390,7 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
     
 
 
-### 以09月top15的关键字为基准，统计5个月的变化
+#### 以09月top15的关键字为基准，统计5个月的变化
 
 
 ```python
@@ -1426,9 +1399,9 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
 ```
 
 
-    
+​    
 ![png](images/contrast/output_18_0.png)
-    
+​    
 
 
 
@@ -1437,7 +1410,7 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
     
 
 
-### 以10月top15的关键字为基准，统计5个月的变化
+#### 以10月top15的关键字为基准，统计5个月的变化
 
 
 ```python
@@ -1446,9 +1419,9 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
 ```
 
 
-    
+​    
 ![png](images/contrast/output_20_0.png)
-    
+​    
 
 
 
@@ -1457,7 +1430,7 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
     
 
 
-### 以11月top15的关键字为基准，统计5个月的变化
+#### 以11月top15的关键字为基准，统计5个月的变化
 
 
 ```python
@@ -1466,9 +1439,9 @@ draw_word_frequency_changes(word_remove_stopword_count_202307, word_remove_stopw
 ```
 
 
-    
+​    
 ![png](images/contrast/output_22_0.png)
-    
+​    
 
 
 
@@ -1490,73 +1463,6 @@ scategory_word_counts_sum_202307 = get_word_frequency_statistics_for_each_field(
 
 
 ![png](images/contrast/output_23_2.png)
-    
-
-
-
-```python
-scategory_word_counts_sum_202308 = get_word_frequency_statistics_for_each_field(word_remove_stopword_count_202308, '202308')
-```
-
-
-![png](images/contrast/output_24_1.png)
-    
-
-
-
-
-![png](images/contrast/output_24_2.png)
-    
-
-
-
-```python
-scategory_word_counts_sum_202309 = get_word_frequency_statistics_for_each_field(word_remove_stopword_count_202309, '202309')
-```
-
-
-![png](images/contrast/output_25_1.png)
-    
-
-
-
-
-![png](images/contrast/output_25_2.png)
-    
-
-
-
-```python
-scategory_word_counts_sum_202310 = get_word_frequency_statistics_for_each_field(word_remove_stopword_count_202310, '202310')
-```
-
-
-![png](images/contrast/output_26_1.png)
-    
-
-
-
-
-![png](images/contrast/output_26_2.png)
-    
-
-
-
-```python
-scategory_word_counts_sum_202311 = get_word_frequency_statistics_for_each_field(word_remove_stopword_count_202311, '202311')
-```
-
-
-![png](images/contrast/output_27_1.png)
-    
-
-
-
-
-![png](images/contrast/output_27_2.png)
-    
-
-
 
 ```python
 get_word_frequency_statistics_for_each_field_changes(scategory_word_counts_sum_202307,scategory_word_counts_sum_202308,scategory_word_counts_sum_202309,scategory_word_counts_sum_202310, scategory_word_counts_sum_202311)
@@ -1566,3 +1472,6 @@ get_word_frequency_statistics_for_each_field_changes(scategory_word_counts_sum_2
 ![png](images/contrast/output_28_0.png)
     
 
+### 2. 各个省份出现频率分析
+
+![QQ录屏20231201151917](images/QQ录屏20231201151917.gif)
